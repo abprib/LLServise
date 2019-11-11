@@ -1,0 +1,21 @@
+{% extends  'base.html' %}
+{% load i18n crispy_forms_tags %}
+
+{% block main %}
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Words</h4>
+
+        {% if request.user.id == word.user.id %}
+            <p>{{ word.word_translation }}</p>
+            <p>{{ word.word_to_learn }}</p>
+            <img src="{{ word.word_image.url }}">
+
+
+            <a href="{% url 'words:WordUpdate' word.id %}" class="btn btn-primary btn-block" >{% trans 'Редактировать' %} </a>
+            <a href="{% url 'words:WordDelete' word.id %}" class="btn btn-primary btn-block" >{% trans 'Удалить' %} </a>
+        {% endif %}
+
+ </div>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends  'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block main %}
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Words</h4>
+        <div>
+            {% for word in object_list %}
+            <p><a href="{% url 'words:WordDetail' word.id %}">{{ word.word_translation }}</a></p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
